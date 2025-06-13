@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import TowerSelector from './TowerSelector';
 import ApartmentDetail from './ApartmentDetail';
 import ApartmentList from './ApartmentList';
 import FloorSelector from './FloorSelector';
-
 
 import emily from '../assets/emily.png';
 import envy from '../assets/envy.png';
@@ -62,9 +61,29 @@ const Tower = () => {
     },
   ];
 
-  const [selectedTower, setTower] = useState(null);
-  const [selectedFloor, setFloor] = useState(null);
-  const [selectedApartment, setApartment] = useState(null);
+  // Persistent State Loaders
+  const [selectedTower, setTower] = useState(() => localStorage.getItem('selectedTower'));
+  const [selectedFloor, setFloor] = useState(() => localStorage.getItem('selectedFloor'));
+  const [selectedApartment, setApartment] = useState(() => {
+    const saved = localStorage.getItem('selectedApartment');
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  // Sync with localStorage
+  useEffect(() => {
+    if (selectedTower) localStorage.setItem('selectedTower', selectedTower);
+    else localStorage.removeItem('selectedTower');
+  }, [selectedTower]);
+
+  useEffect(() => {
+    if (selectedFloor) localStorage.setItem('selectedFloor', selectedFloor);
+    else localStorage.removeItem('selectedFloor');
+  }, [selectedFloor]);
+
+  useEffect(() => {
+    if (selectedApartment) localStorage.setItem('selectedApartment', JSON.stringify(selectedApartment));
+    else localStorage.removeItem('selectedApartment');
+  }, [selectedApartment]);
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-gray-100 to-gray-200 p-6">
@@ -100,7 +119,7 @@ const Tower = () => {
             floor={selectedFloor}
             apartments={apartments}
             onBack={() => setFloor(null)}
-            onSelect={setApartment}
+            onSelect={(apt) => setApartment(apt)}
           />
         )}
       </AnimatePresence>
