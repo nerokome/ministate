@@ -5,7 +5,7 @@ import ApartmentDetail from './ApartmentDetail';
 import ApartmentList from './ApartmentList';
 import FloorSelector from './FloorSelector';
 
-// ✅ Image imports
+
 import emily from '../assets/emily.png';
 import envy from '../assets/envy.png';
 import outside from '../assets/outside.png';
