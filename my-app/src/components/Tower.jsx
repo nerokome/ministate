@@ -26,6 +26,7 @@ import twelve from '../assets/twelve.png';
 const Tower = () => {
   const towers = ['Tower A', 'Tower B', 'Tower C'];
   const floors = Array.from({ length: 15 }, (_, i) => `Floor ${15 - i}`);
+
   const apartments = [
     {
       id: 1,
@@ -61,7 +62,7 @@ const Tower = () => {
     },
   ];
 
-  // Persistent State Loaders
+  // 🧠 Persistent State
   const [selectedTower, setTower] = useState(() => localStorage.getItem('selectedTower'));
   const [selectedFloor, setFloor] = useState(() => localStorage.getItem('selectedFloor'));
   const [selectedApartment, setApartment] = useState(() => {
@@ -69,21 +70,37 @@ const Tower = () => {
     return saved ? JSON.parse(saved) : null;
   });
 
-  // Sync with localStorage
+  // 💾 Save Selection
   useEffect(() => {
-    if (selectedTower) localStorage.setItem('selectedTower', selectedTower);
-    else localStorage.removeItem('selectedTower');
+    selectedTower
+      ? localStorage.setItem('selectedTower', selectedTower)
+      : localStorage.removeItem('selectedTower');
   }, [selectedTower]);
 
   useEffect(() => {
-    if (selectedFloor) localStorage.setItem('selectedFloor', selectedFloor);
-    else localStorage.removeItem('selectedFloor');
+    selectedFloor
+      ? localStorage.setItem('selectedFloor', selectedFloor)
+      : localStorage.removeItem('selectedFloor');
   }, [selectedFloor]);
 
   useEffect(() => {
-    if (selectedApartment) localStorage.setItem('selectedApartment', JSON.stringify(selectedApartment));
-    else localStorage.removeItem('selectedApartment');
+    selectedApartment
+      ? localStorage.setItem('selectedApartment', JSON.stringify(selectedApartment))
+      : localStorage.removeItem('selectedApartment');
   }, [selectedApartment]);
+
+  // 🚀 Preload all images
+  useEffect(() => {
+    const images = [
+      emily, envy, outside, robert,
+      one, two, three, four, five, six,
+      seven, eight, nine, ten, eleven, twelve
+    ];
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-gray-100 to-gray-200 p-6">
