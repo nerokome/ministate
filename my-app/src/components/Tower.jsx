@@ -5,23 +5,23 @@ import ApartmentDetail from './ApartmentDetail';
 import ApartmentList from './ApartmentList';
 import FloorSelector from './FloorSelector';
 
-import emily from '../assets/emily.png';
-import envy from '../assets/envy.png';
-import outside from '../assets/outside.png';
-import robert from '../assets/robert.png';
+import emily from '../assets/emily.webp';
+import envy from '../assets/envy.webp';
+import outside from '../assets/outside.webp';
+import robert from '../assets/robert.webp';
 
-import one from '../assets/one.png';
-import two from '../assets/two.png';
-import three from '../assets/three.png';
-import four from '../assets/four.png';
-import five from '../assets/five.png';
-import six from '../assets/six.png';
-import seven from '../assets/seven.png';
-import eight from '../assets/eight.png';
-import nine from '../assets/nine.png';
-import ten from '../assets/ten.png';
-import eleven from '../assets/eleven.png';
-import twelve from '../assets/twelve.png';
+import one from '../assets/one.webp';
+import two from '../assets/two.webp';
+import three from '../assets/three.webp';
+import four from '../assets/four.webp';
+import five from '../assets/five.webp';
+import six from '../assets/six.webp';
+import seven from '../assets/seven.webp';
+import eight from '../assets/eight.webp';
+import nine from '../assets/nine.webp';
+import ten from '../assets/ten.webp';
+import eleven from '../assets/eleven.webp';
+import twelve from '../assets/twelve.webp';
 
 const Tower = () => {
   const towers = ['Tower A', 'Tower B', 'Tower C'];
