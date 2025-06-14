@@ -22,24 +22,36 @@ const ApartmentList = ({ floor, apartments, onBack, onSelect }) => {
           </button>
         </motion.button>
       </div>
+
       <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {apartments.map((apt, i) => (
           <motion.div
             key={apt.id}
-            className="bg-white rounded-lg shadow relative overflow-hidden cursor-pointer group"
+            className="relative bg-white rounded-lg shadow overflow-hidden cursor-pointer group"
             onClick={() => onSelect(apt)}
-            whileHover={{ scale: 1.03 }}
             variants={fadeInUp}
-            transition={{ delay: i * 0.1 }}
+            transition={{ delay: i * 0.1, duration: 0.4 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 1.03 }}
           >
-            <motion.img
-              src={apt.image}
-              alt={apt.type}
-              loading="lazy"
-              className="w-full h-80 object-cover"
+          
+            <motion.div
+              className="relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-            />
+            >
+              <img
+                src={apt.image}
+                alt={apt.type}
+                loading="lazy"
+                className="w-full h-80 object-cover"
+              />
+              
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 group-active:bg-black/30 transition-all duration-300 pointer-events-none" />
+            </motion.div>
+
+            
             <div className="p-4 space-y-1">
               <p className="text-sm">{apt.area}</p>
               <p className="font-semibold">{apt.type}</p>
