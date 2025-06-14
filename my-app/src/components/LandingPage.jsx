@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { IoIosHome } from "react-icons/io";
 
+
 const LandingPage = () => {
-  const navigate = useNavigate(); // Hook to programmatically navigate
+  const navigate = useNavigate(); 
 
   return (
-    <div className="bg-[url('/estate.png')] bg-center bg-cover sm:h-screen h-[70vh] relative text-white sm:bg-cover sm:bg-center min-h-screen bg-gradient-to-br from-white to-blue-100 flex flex-col">
+    <div className="bg-[url('/estate.webp')] bg-center bg-cover sm:h-screen h-[70vh] relative text-white sm:bg-cover sm:bg-center min-h-screen bg-gradient-to-br from-white to-blue-100 flex flex-col">
       <div className="absolute inset-1 bg-black opacity-10 z-[1] sm:opacity-10"></div>
        <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent z-[0]"></div>
        <div className="p-9 relative z-[2]">
